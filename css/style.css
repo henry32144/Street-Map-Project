@@ -75,6 +75,10 @@ body {
     color: #fff;
 }
 
+.sidebar-nav ul {
+    padding-left: 0;
+}
+
 .sidebar-nav li {
     text-indent: 20px;
     line-height: 40px;
@@ -100,5 +104,5 @@ body {
 @media(max-width:768px) {
     #wrapper.toggled #sidebar-wrapper {
     width: 45%;
-    }
+}
 }
