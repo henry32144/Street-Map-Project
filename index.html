@@ -38,11 +38,11 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <div class="input-group">
-                  <input id="searchbar" class="form-control" type="text" placeholder="">
+                  <input id="searchbar" class="form-control" type="text" placeholder="" data-bind="value: searchValue, valueUpdate: 'keyup'">
                   <span class="input-group-addon" id="basic-addon1">Filter</span>
                 </div>
                 <ul data-bind="foreach: catList">
-                  <li><a data-bind="text: name"></a></li>
+                  <li><a data-bind="text: name , visible: isVisible"></a></li>
                 </ul>
             </ul>
         </div>
@@ -53,25 +53,6 @@
       </div>
     </div>
     <script>    
-      function initMap() {
-        map = new google.maps.Map(document.getElementById("map"),{
-        center: {lat: 40.7413549 ,lng: -73.99802439999996},
-        zoom: 13,
-        fullscreenControl: false,
-        });
-        var tribeca = {lat: 40.719526, lng: -74.0089934};
-        var marker = new google.maps.Marker({
-          position: tribeca,
-          map: map,
-          title: 'First Maker!',
-        });
-        var infowindow = new google.maps.InfoWindow({
-          content: 'DO you eeee...'
-        });
-        marker.addListener('click', function() {
-          infowindow.open(map, marker);
-        });
-      };    
     </script>
 
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -79,6 +60,7 @@
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/lib/knockout-3.4.2.js"></script>
+    <script src="js/map.js"></script>
     <script src="js/app.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script async defer 
