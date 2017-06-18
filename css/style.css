@@ -1,6 +1,5 @@
 
 body {
-
 	background: #272822;
 }
 
@@ -87,6 +86,9 @@ body {
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
+    white-space: nowrap;
+    overflow:hidden; 
+    text-overflow: ellipsis;
     color: rgba(183, 183, 183, 0.95);
 }
 

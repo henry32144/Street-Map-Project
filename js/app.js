@@ -1,21 +1,14 @@
+var stores = ko.observableArray([]);
 
-var initialCats = [
-	{
-		name : 'Tabby',
-	},
-	{
-		name : 'Tiger',
-	},
-	{
-		name : 'Black',
-	},
-	{
-		name : 'White',
-	},
-	{
-		name : 'Fan',
-	},
-];
+var saveStoreList = function(place) {
+	stores(place);
+}
+
+var createStoreList = function(place) {
+	console.log(place.name);
+	this.name = ko.observable(place.name);
+	this.isVisible = ko.observable(true);
+}
 
 var Cat = function(data) {
 	this.name = ko.observable(data.name);
@@ -27,34 +20,39 @@ var ViewModel = function() {
 
 	this.searchValue = ko.observable();
 
-	this.isToggled = ko.observable(false);
+	//Set sidebar toggle 
+ 	this.isToggled = ko.observable(false);
 
 	this.toggleSideBar = function() {
 		this.isToggled(!this.isToggled());
 	};
 
-	this.catList = ko.observableArray([]);
+	this.storeList = ko.observableArray([]);
 
-	initialCats.forEach(function(catItem) {
-		self.catList.push (new Cat(catItem));
-	});
+	this.refreshStoreList = ko.computed(function() {
+		stores().forEach(function(storeItem) {
+		self.storeList.push (new createStoreList(storeItem));
+		});
+	},this);
+	
+
 
 
 	this.autoCompelete = ko.computed(function() {
 		this.reg = new RegExp(this.searchValue(),"i");
-		for(var cat in this.catList()){
-			if(!this.reg.test(this.catList()[cat].name()))
+		for(var s in this.storeList()){
+			if(!this.reg.test(this.storeList()[s].name()))
 			{
-				this.catList()[cat].isVisible(false);
+				this.storeList()[s].isVisible(false);
 			}
 			else
 			{
-				this.catList()[cat].isVisible(true);
+				this.storeList()[s].isVisible(true);
 			}
 		}
 
 		//resort the array
-		this.catList.sort(function(a,b){
+		this.storeList.sort(function(a,b){
 			if(a.isVisible() > b.isVisible()) {
 				return -1;
 			}
