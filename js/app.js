@@ -30,7 +30,6 @@ var ViewModel = function() {
 		});
 	},this);
 	
-
 	this.autoCompelete = ko.computed(function() {
 		this.reg = new RegExp(this.searchValue(),"i");
 		for(var s in this.storeList()){
@@ -49,7 +48,6 @@ var ViewModel = function() {
 				}
 			}
 		}
-
 		//resort the array
 		this.storeList.sort(function(a,b){
 			if(a.isVisible() > b.isVisible()) {
@@ -60,11 +58,12 @@ var ViewModel = function() {
 			}			
 			return 0;
 		});
-
-
 	},this);
 
-	
+	this.openMarker = function(store) {
+		tempMarker = markers[store.index];
+		openInfo(tempMarker);
+	};
 
 }
 

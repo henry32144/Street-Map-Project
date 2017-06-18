@@ -42,7 +42,7 @@
                   <span class="input-group-addon" id="basic-addon1">Filter</span>
                 </div>
                 <ul data-bind="foreach: storeList">
-                  <li><a data-bind="text: name , visible: isVisible"></a></li>
+                  <li><a data-bind="text: name , visible: isVisible , click: $parent.openMarker"></a></li>
                 </ul>
             </ul>
         </div>
