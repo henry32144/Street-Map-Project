@@ -10,6 +10,7 @@ var createStoreList = function(place , index) {
 	this.index = index;
 }
 
+
 var ViewModel = function() {
 	var self = this;
 
@@ -22,6 +23,16 @@ var ViewModel = function() {
 		this.isToggled(!this.isToggled());
 	};
 
+	//unavailable text filter
+	this.clearString = function(s){ 
+	    var pattern = new RegExp("[`\\\\~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）&;|{}【】‘；：”“'。，、？]") 
+	    var rs = ""; 
+	    for (var i = 0; i < s.length; i++) { 
+	        rs = rs+s.substr(i, 1).replace(pattern, ''); 
+	    } 
+	    return rs;  
+	}
+
 	this.storeList = ko.observableArray([]);
 
 	this.refreshStoreList = ko.computed(function() {
@@ -31,40 +42,49 @@ var ViewModel = function() {
 	},this);
 	
 	this.autoCompelete = ko.computed(function() {
-		this.reg = new RegExp(this.searchValue(),"i");
-		for(var s in this.storeList()){
-			if(!this.reg.test(this.storeList()[s].name()))
-			{
-				this.storeList()[s].isVisible(false);
-				if(markersReady) {
-					hideMarker(this.storeList()[s].index);
+			temp = this.searchValue();
+			if(!temp) {
+				temp = "";
+			}
+			tempVal = self.clearString(temp);
+			this.reg = new RegExp(tempVal,"i");
+			for(var s in this.storeList()){
+				if(!this.reg.test(this.storeList()[s].name()))
+				{
+					this.storeList()[s].isVisible(false);
+					if(markersReady) {
+						hideMarker(this.storeList()[s].index);
+					}
+				}
+				else
+				{
+					this.storeList()[s].isVisible(true);
+					if(markersReady) {
+						showMarker(this.storeList()[s].index);
+					}
 				}
 			}
-			else
-			{
-				this.storeList()[s].isVisible(true);
-				if(markersReady) {
-					showMarker(this.storeList()[s].index);
+			//resort the array
+			this.storeList.sort(function(a,b){
+				if(a.isVisible() > b.isVisible()) {
+					return -1;
 				}
-			}
-		}
-		//resort the array
-		this.storeList.sort(function(a,b){
-			if(a.isVisible() > b.isVisible()) {
-				return -1;
-			}
-			if(a.isVisible() < b.isVisible()) {
-				return 1;
-			}			
-			return 0;
-		});
+				if(a.isVisible() < b.isVisible()) {
+					return 1;
+				}			
+				return 0;
+			});
 	},this);
 
 	this.openMarker = function(store) {
 		tempMarker = markers[store.index];
-		openInfo(tempMarker);
+		openInfo(tempMarker,store.index);
 	};
 
+	
 }
 
+
 ko.applyBindings(new ViewModel());
+
+
