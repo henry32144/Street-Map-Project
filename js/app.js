@@ -1,9 +1,11 @@
 var stores = ko.observableArray([]);
 
+//save value to knockout model
 var saveStoreList = function(place) {
 	stores(place);
 }
 
+//create store list
 var createStoreList = function(place , index) {
 	this.name = ko.observable(place.name);
 	this.isVisible = ko.observable(true);
@@ -35,6 +37,7 @@ var ViewModel = function() {
 
 	this.storeList = ko.observableArray([]);
 
+	//refresh storelist when get search results
 	this.refreshStoreList = ko.computed(function() {
 		stores().forEach(function(storeItem , index) {
 		self.storeList.push(new createStoreList(storeItem , index));
@@ -42,11 +45,14 @@ var ViewModel = function() {
 	},this);
 	
 	this.autoCompelete = ko.computed(function() {
+		//this part is to prevent undefined error
 			temp = this.searchValue();
 			if(!temp) {
 				temp = "";
 			}
+			//ignored unvaliable string
 			tempVal = self.clearString(temp);
+			//use regular expression to match list and search value
 			this.reg = new RegExp(tempVal,"i");
 			for(var s in this.storeList()){
 				if(!this.reg.test(this.storeList()[s].name()))
@@ -76,6 +82,7 @@ var ViewModel = function() {
 			});
 	},this);
 
+	//open marker when click the list
 	this.openMarker = function(store) {
 		tempMarker = markers[store.index];
 		openInfo(tempMarker,store.index);

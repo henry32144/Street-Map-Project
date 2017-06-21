@@ -99,6 +99,7 @@ function callback(results, status) {
     else alert('Maybe there is no Sushi Around you!');
 }
 
+//this function is to get Fbcontent by jquery ajax  
 function getFbContent(place,index) {
 
   var name = place.name;
@@ -135,6 +136,7 @@ function createMarker(place , label) {
       markersReady = true;
     }
 
+    //add event listener to current marker
     marker.addListener('mouseover', function() {
       this.setIcon(highlightedIcon);
     });
@@ -148,6 +150,7 @@ function createMarker(place , label) {
     });
 }
 
+//put Content from google place api and Facebook api
 function setInfoContent(marker,index) {
     //check fbcontent is ready to go
     console.log(index);
@@ -227,14 +230,17 @@ function toggleBounce(marker) {
   }
 }
 
+//this function is to show marker by index
 function showMarker(index) {
   markers[index].setMap(map);
 }
 
+//this function is to hide marker by index
 function hideMarker(index) {
   markers[index].setMap(null);
 }
 
+//this function is to open infowindow by index
 function openInfo(marker,index) {
   toggleBounce(marker);
   setInfoContent(marker,index);
