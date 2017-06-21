@@ -88,7 +88,6 @@ function getSearch(pos) {
 //send results to saveStoreList for knockout model 
 function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
-        console.log(results);
         //save results for model
         saveStoreList(results);
         for (var i = 0; i < results.length; i++) {
@@ -153,7 +152,6 @@ function createMarker(place , label) {
 //put Content from google place api and Facebook api
 function setInfoContent(marker,index) {
     //check fbcontent is ready to go
-    console.log(index);
     var hasFbContent;
     if (fbContent.length > 19) {
         if (fbContent[index].data.length > 0) {
