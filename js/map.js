@@ -259,3 +259,14 @@ function makeMarkerIcon(markerColor) {
     new google.maps.Size(21,34));
   return markerImage;
 }
+
+//google map error handling
+//auth error
+function gm_authFailure() { 
+  alert("google map api key authorize Failure");
+};
+
+//unload google map error
+mapError = function() {
+    alert("Oops ! something wrong so google map api didnt load success");
+}
