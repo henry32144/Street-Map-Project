@@ -16,7 +16,7 @@ Demo
 ==============================
 [![Sushi](icon.png)](https://henry32144.github.io/Street-Map-Project/)
 
-######(I once dreamed of becoming an artist):smile:
+###### (I once dreamed of becoming an artist) :smile:
 
 How to use
 ==============================
