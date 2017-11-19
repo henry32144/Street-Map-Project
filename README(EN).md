@@ -12,6 +12,12 @@ Used API:
 * Google map api, Google map place
 * Facebook api
 
+Demo
+==============================
+[![Sushi](icon.png)](https://henry32144.github.io/Street-Map-Project/)
+
+######(I once dreamed of becoming an artist):smile:
+
 How to use
 ==============================
 Open index.html, and the application will try to get the current location of user.
