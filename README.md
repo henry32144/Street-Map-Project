@@ -1,6 +1,9 @@
 
 街區地圖項目-SUSHI HUNTER
 ===============================
+
+[English Version](https://github.com/henry32144/Street-Map-Project/blob/master/README(EN).md)
+
 這個項目是用來查詢用戶周圍的壽司餐廳，提供餐廳的簡略資料，給忍者們提供用餐的選擇
 
 在這個項目中使用了Knockout.js框架來建構
