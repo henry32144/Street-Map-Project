@@ -2,6 +2,8 @@
 街區地圖項目-SUSHI HUNTER
 ===============================
 
+**the demo won't work correctly because the Google map API is changed**
+
 [English Version](https://github.com/henry32144/Street-Map-Project/blob/master/README(EN).md)
 
 這個項目是用來查詢用戶周圍的壽司餐廳，提供餐廳的簡略資料，給忍者們提供用餐的選擇
@@ -18,9 +20,7 @@
 
 Demo
 ==============================
-[![Sushi](icon.png)](https://henry32144.github.io/Street-Map-Project/)
-
-###### (我曾經的夢想是當個藝術家) :smile:
+[![Sushi](icon.png)](https://henry32144.github.io/street-map-project/)
 
 如何使用
 ==============================
