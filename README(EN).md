@@ -1,5 +1,8 @@
 Street map project -SUSHI HUNTER
 ===============================
+
+**thid demo may not work correctly because the Google map API and the Facebook API has changed or expired**
+
 This project is for user to search sushi restaurants around, providing simple information about the restaurants, to help ninjas(?) solve their lunch problem.
 
 This project used Knockout.js frame to build. 
