@@ -20,6 +20,9 @@
 
 Demo
 ==============================
+
+![Screenshot](screenshot.jpg)
+
 [![Sushi](icon.png)](https://henry32144.github.io/street-map-project/)
 
 如何使用

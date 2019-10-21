@@ -17,9 +17,12 @@ Used API:
 
 Demo
 ==============================
+
+![Screenshot](screenshot.jpg)
+
 [![Sushi](icon.png)](https://henry32144.github.io/Street-Map-Project/)
 
-###### (I once dreamed of becoming an artist) :smile:
+###### (I used to want to be an painter) :smile:
 
 How to use
 ==============================
