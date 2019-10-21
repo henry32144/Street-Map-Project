@@ -2,7 +2,7 @@
 街區地圖項目-SUSHI HUNTER
 ===============================
 
-**the demo won't work correctly because the Google map API is changed**
+**thid demo may not work correctly because the Google map API and the Facebook API has changed or expired**
 
 [English Version](https://github.com/henry32144/Street-Map-Project/blob/master/README(EN).md)
 
